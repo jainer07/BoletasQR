@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Validador de Boletas</title>
+		<meta name="theme-color" content="#10b981" />
+	</head>
+	<body>
+		<div class="container">
+			<slot />
+		</div>
+		<script type="module">
+			import { setupQRScanner } from "/src/components/QRScanner.ts";
+			window.addEventListener("DOMContentLoaded", () => {
+				// @ts-ignore - para jugar en consola si quieres
+				window.scanner = setupQRScanner(document);
+			});
+		</script>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
