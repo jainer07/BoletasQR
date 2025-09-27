@@ -54,9 +54,11 @@ let title = "Validador de Boletas";
 			</p>
 		</div>
 
-		<script type="module">
-			import { setupQRScanner } from "../components/QRScanner";
+		<script is:module>
+			import { setupQRScanner } from "../components/QRScanner.ts";
+
 			window.addEventListener("DOMContentLoaded", () => {
+				// Si setupQRScanner devuelve una instancia, NO lo instancies con new
 				// @ts-ignore
 				window.scanner = setupQRScanner(document);
 			});
