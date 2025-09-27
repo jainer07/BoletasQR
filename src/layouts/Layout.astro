@@ -11,13 +11,6 @@
 		<div class="container">
 			<slot />
 		</div>
-		<script type="module">
-			import { setupQRScanner } from "/src/components/QRScanner.ts";
-			window.addEventListener("DOMContentLoaded", () => {
-				// @ts-ignore - para jugar en consola si quieres
-				window.scanner = setupQRScanner(document);
-			});
-		</script>
 	</body>
 </html>
 
