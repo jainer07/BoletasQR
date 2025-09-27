@@ -194,7 +194,7 @@ export function setupQRScanner(root: Document | HTMLElement = document) {
 
     // ---- Validación contra API ----
     async function postScan(body: ScanRequest, signal?: AbortSignal): Promise<ScanResponse> {
-        const resp = await fetch('/api/boletas/scan', {
+        const resp = await fetch('https://kombat-fight-entrada.up.railway.app/api/boletas/scan', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
