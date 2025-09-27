@@ -244,7 +244,7 @@ export function setupQRScanner(root: Document | HTMLElement = document) {
                 // ⏸️ Pausa lector y oculta la cámara mientras se decide
                 await pauseAndHideCamera();
 
-                showConfirm(`<div>¿Aprobar ingreso para <strong>${escapeHtml(data.titular)}</strong> al evento <strong>${escapeHtml(data.evento)}</strong>?</div>`);
+                showConfirm(`<div>¿Aprobar ingreso para el evento <strong>${escapeHtml(data.evento)}</strong>?</div>`);
 
                 // Wire temporal para este código específico
                 btnApprove.onclick = async () => {
