@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 let title = "Validador de Boletas";
+const initUrl = new URL("../scripts/init-scanner.ts", import.meta.url).pathname;
 ---
 
 <html lang="es">
@@ -52,15 +53,6 @@ let title = "Validador de Boletas";
 			</p>
 		</div>
 
-		<script type="module">
-			import { setupQRScanner } from "/src/components/QRScanner.ts";
-			const root = document.body;
-			// Espera a que el DOM exista
-			window.addEventListener("DOMContentLoaded", () => {
-				// Crea una instancia y la mantiene en window para debugging
-				// @ts-ignore
-				window.scanner = new setupQRScanner(document);
-			});
-		</script>
+		<script type="module" src={initUrl}></script>
 	</body>
 </html>
