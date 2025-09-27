@@ -8,6 +8,7 @@ let title = "Validador de Boletas";
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
+		<link rel="icon" href="/favicon.svg" />
 		<meta name="theme-color" content="#10b981" />
 		<link rel="manifest" href="/manifest.json" />
 	</head>
@@ -54,14 +55,6 @@ let title = "Validador de Boletas";
 			</p>
 		</div>
 
-		<script is:module>
-			import { setupQRScanner } from "../components/QRScanner.ts";
-
-			window.addEventListener("DOMContentLoaded", () => {
-				// Si setupQRScanner devuelve una instancia, NO lo instancies con new
-				// @ts-ignore
-				window.scanner = setupQRScanner(document);
-			});
-		</script>
+		<script src="../scripts/main.ts" />
 	</body>
 </html>
