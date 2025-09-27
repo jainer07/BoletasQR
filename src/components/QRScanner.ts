@@ -194,17 +194,11 @@ export function setupQRScanner(root: Document | HTMLElement = document) {
 
     // ---- Validación contra API ----
     async function postScan(body: ScanRequest, signal?: AbortSignal): Promise<ScanResponse> {
-        // const base = import.meta.env.PUBLIC_API_BASE;
-        const API_BASE = import.meta.env.PUBLIC_API_BASE;
-        console.log("API_BASE:", API_BASE);
-        const key = "1";
-        const base = document.documentElement.getAttribute("data-api-base");
-
-        const resp = await fetch(`${base}/api/boletas/scan`, {
+        const resp = await fetch('/api/boletas/scan', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                ...(key ? { 'x-api-key': key } : {}),
+                'x-api-key': '1',
             },
             body: JSON.stringify(body),
             signal,
