@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
 let title = "Validador de Boletas";
-const initUrl = new URL("../scripts/init-scanner.ts", import.meta.url).pathname;
 ---
 
 <html lang="es">
@@ -10,7 +9,7 @@ const initUrl = new URL("../scripts/init-scanner.ts", import.meta.url).pathname;
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
 		<meta name="theme-color" content="#10b981" />
-		<link rel="manifest" href="/manifest.json">
+		<link rel="manifest" href="/manifest.json" />
 	</head>
 	<body>
 		<div class="container">
@@ -39,7 +38,9 @@ const initUrl = new URL("../scripts/init-scanner.ts", import.meta.url).pathname;
 					<div class="row"><strong>Confirmar ingreso</strong></div>
 					<div id="confirmInfo" class="small mt"></div>
 					<div class="row mt">
-						<button id="btnApprove" class="btn btn-primary">Aprobar</button>
+						<button id="btnApprove" class="btn btn-primary"
+							>Aprobar</button
+						>
 						<button id="btnDeny" class="btn">Denegar</button>
 					</div>
 				</div>
@@ -53,6 +54,12 @@ const initUrl = new URL("../scripts/init-scanner.ts", import.meta.url).pathname;
 			</p>
 		</div>
 
-		<script type="module" src={initUrl}></script>
+		<script type="module">
+			import { setupQRScanner } from "../components/QRScanner";
+			window.addEventListener("DOMContentLoaded", () => {
+				// @ts-ignore
+				window.scanner = setupQRScanner(document);
+			});
+		</script>
 	</body>
 </html>
