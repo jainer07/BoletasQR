@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+let title = "Validador de Boletas";
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="theme-color" content="#10b981" />
+		<link rel="manifest" href="/manifest.json">
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="center">{title}</h1>
+
+			<div class="card">
+				<div class="row">
+					<label for="deviceSelect">Cámara:</label>
+					<select id="deviceSelect"></select>
+					<button class="btn" id="torchBtn" title="Linterna"
+						>🔦</button
+					>
+					<button class="btn btn-primary" id="startBtn"
+						>Iniciar</button
+					>
+					<button class="btn" id="stopBtn" disabled>Detener</button>
+				</div>
+				<div class="mt">
+					<span id="status" class="status badge info">Listo</span>
+				</div>
+				<div>
+					<div id="details" class="mt small"></div>
+					<button id="btnClear" class="btn">Limpiar</button>
+				</div>
+				<div id="confirmPanel" class="card mt" style="display:none">
+					<div class="row"><strong>Confirmar ingreso</strong></div>
+					<div id="confirmInfo" class="small mt"></div>
+					<div class="row mt">
+						<button id="btnApprove" class="btn btn-primary">Aprobar</button>
+						<button id="btnDeny" class="btn">Denegar</button>
+					</div>
+				</div>
+				<div class="mt">
+					<video id="video" playsinline muted></video>
+				</div>
+			</div>
+
+			<p class="small mt">
+				Sugerencia: usa la cámara trasera en móviles para mejor foco.
+			</p>
+		</div>
+
+		<script type="module">
+			import { setupQRScanner } from "/src/components/QRScanner.ts";
+			const root = document.body;
+			// Espera a que el DOM exista
+			window.addEventListener("DOMContentLoaded", () => {
+				// Crea una instancia y la mantiene en window para debugging
+				// @ts-ignore
+				window.scanner = new setupQRScanner(document);
+			});
+		</script>
+	</body>
+</html>
